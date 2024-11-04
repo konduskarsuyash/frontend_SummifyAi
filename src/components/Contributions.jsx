@@ -14,7 +14,7 @@ const Contributions = ({ userId }) => {
   useEffect(() => {
     const fetchContributions = async () => {
       try {
-        const response = await fetch(`https://backend-summifyai.onrender.com/user/contributions/${userId}/`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/contributions/${userId}/`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
             'Content-Type': 'application/json',

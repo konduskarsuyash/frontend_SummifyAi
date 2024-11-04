@@ -23,7 +23,7 @@ const Signup = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://backend-summifyai.onrender.com/account/register/', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/account/register/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

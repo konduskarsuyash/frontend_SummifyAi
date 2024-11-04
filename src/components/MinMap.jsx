@@ -25,7 +25,7 @@ const MindMap = () => {
     const token = localStorage.getItem('token'); // Adjust this according to your storage method
 
     try {
-      const response = await fetch('https://backend-summifyai.onrender.com/api/pdf_mindmap/', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/pdf_mindmap/`, {
         method: 'POST',
         // Only add Authorization header if token exists
         headers: {

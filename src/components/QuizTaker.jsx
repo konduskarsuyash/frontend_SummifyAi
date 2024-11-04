@@ -22,7 +22,7 @@ const QuizComponent = () => {
 
 
       try {
-        const response = await fetch(`https://backend-summifyai.onrender.com/api/generate-quiz/`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/generate-quiz/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

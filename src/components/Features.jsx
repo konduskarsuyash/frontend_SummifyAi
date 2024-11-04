@@ -67,7 +67,7 @@ export default function Features() {
     useEffect(() => {
         const fetchUserId = async () => {
             try {
-                const response = await fetch('https://backend-summifyai.onrender.com/user/get-user-id/', {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/get-user-id/`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}` // Replace with your auth method

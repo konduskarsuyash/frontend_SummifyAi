@@ -49,7 +49,7 @@ export default function PDFSummarizer() {
     formData.append('end_page_number', endPage);
 
     try {
-      const response = await fetch('https://backend-summifyai.onrender.com/api/pdf_summarize/', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/pdf_summarize/`, {
         method: 'POST',
         body: formData,
         headers: {

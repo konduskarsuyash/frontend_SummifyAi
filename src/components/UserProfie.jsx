@@ -66,7 +66,7 @@ export default function UserProfile() {
 
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`https://backend-summifyai.onrender.com/user/profile/${user_id}/`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/profile/${user_id}/`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -93,7 +93,7 @@ export default function UserProfile() {
 
   const handleProfileUpdate = async () => {
     try {
-      const response = await fetch(`https://backend-summifyai.onrender.com/user/profile/${user_id}/`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/profile/${user_id}/`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,

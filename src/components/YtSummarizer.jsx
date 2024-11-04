@@ -26,7 +26,7 @@ export default function YtSummarizer() {
 
     // Call the backend API
     try {
-      const response = await fetch(`https://backend-summifyai.onrender.com/api/yt_summarize/`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/yt_summarize/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,12 +110,13 @@ export default function YtSummarizer() {
                 placeholder="Channel link"
                 className="w-full bg-zinc-800 rounded-md p-3 text-white placeholder-gray-400"
               />
-              <button
-                type="submit"
-                className="w-full bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-200 transition-colors"
-              >
-                Submit
-              </button>
+            <button 
+              type="submit" 
+              className="w-full bg-white text-black font-semibold py-3 rounded-md hover:bg-gray-200 transition-colors"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Processing...' : 'Submit'}
+            </button>
             </form>
           </div>
         )}
@@ -124,13 +125,10 @@ export default function YtSummarizer() {
 
         {/* Display loading bar while content is being loaded */}
         {isLoading && (
-          <div className="mt-12">
-            <div className="bg-gray-200 rounded-full h-4 w-full mb-4">
-              <div className="bg-blue-500 h-4 rounded-full" style={{ width: '100%' }}></div>
-            </div>
-            <p className="text-center">Loading...</p>
-          </div>
-        )}
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white" />
+        </div>
+      )}
 
         {/* Display video and summary side by side after submission */}
         {isSummaryVisible && (

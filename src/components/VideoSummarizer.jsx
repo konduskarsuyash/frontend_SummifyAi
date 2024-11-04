@@ -43,7 +43,7 @@ const VideoSummarizer = () => {
 
   const processVideoSummary = async (formPayload) => {
     try {
-      const response = await fetch('https://backend-summifyai.onrender.com/api/video_summaeizer/', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/video_summaeizer/`, {
         method: 'POST',
         headers: {
           ...(formPayload instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
